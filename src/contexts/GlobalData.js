@@ -471,7 +471,7 @@ const getEthPrice = async () => {
   const utcCurrentTime = dayjs()
   const utcOneDayBack = utcCurrentTime.subtract(1, 'day').startOf('minute').unix()
 
-  let ethPrice = 0
+  let ethPrice = 100
   let ethPriceOneDay = 0
   let priceChangeETH = 0
 
