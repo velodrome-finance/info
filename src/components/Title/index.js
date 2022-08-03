@@ -6,7 +6,9 @@ import { Flex } from 'rebass'
 import Link from '../Link'
 import { RowFixed } from '../Row'
 import Logo from '../../assets/logo_white.svg'
-import Wordmark from '../../assets/wordmark_white.svg'
+import Wordmark from '../../assets/wordmark.svg'
+import WordmarkWhite from '../../assets/wordmark_white.svg'
+import { useDarkModeManager } from '../../contexts/LocalStorage'
 
 import { BasicLink } from '../Link'
 import { useMedia } from 'react-use'
@@ -42,6 +44,7 @@ const Option = styled.div`
 export default function Title() {
   const history = useHistory()
   const below1080 = useMedia('(max-width: 1080px)')
+  const [darkMode] = useDarkModeManager()
 
   return (
     <TitleWrapper onClick={() => history.push('/')}>
@@ -51,7 +54,7 @@ export default function Title() {
             <img width={'24px'} src={Logo} alt="logo" />
           </UniIcon>
           {!below1080 && (
-            <img width={'84px'} style={{ marginLeft: '8px', marginTop: '0px' }} src={Wordmark} alt="logo" />
+            <img width={'84px'} style={{ marginLeft: '8px', marginTop: '0px' }} src={ darkMode ? WordmarkWhite : Wordmark } alt="logo" />
           )}
         </RowFixed>
         {below1080 && (

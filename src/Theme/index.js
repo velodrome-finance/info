@@ -15,9 +15,9 @@ const theme = (darkMode, color) => ({
   textColor: darkMode ? color : 'black',
 
   panelColor: darkMode ? 'rgba(255, 255, 255, 0)' : 'rgba(255, 255, 255, 0)',
-  backgroundColor: darkMode ? '#212429' : '#F7F8FA',
+  backgroundColor: darkMode ? 'black' : '#F1EBE2',
 
-  uniswapPink: darkMode ? '#ff007a' : 'black',
+  uniswapPink: darkMode ? '#027fff' : 'black',
 
   concreteGray: darkMode ? '#292C2F' : '#FAFAFA',
   inputBackground: darkMode ? '#1F1F1F' : '#FAFAFA',
@@ -65,14 +65,14 @@ const theme = (darkMode, color) => ({
   shadow1: darkMode ? '#000' : '#2F80ED',
 
   // other
-  red1: '#FF6871',
-  green1: '#27AE60',
-  yellow1: '#FFE270',
-  yellow2: '#F3841E',
+  red1: '#FF1301',
+  green1: '#79F8DB',
+  yellow1: '#FDBF40',
+  yellow2: '#FDBF40',
   link: '#2172E5',
-  blue: '2f80ed',
+  blue: '#2172E5',
 
-  background: darkMode ? 'black' : `radial-gradient(50% 50% at 50% 50%, #ff007a30 0%, #fff 0%)`,
+  background: darkMode ? 'black' : `white`,
 })
 
 const TextWrapper = styled(Text)`
@@ -144,8 +144,6 @@ export const ThemedBackground = styled.div`
   max-width: 100vw !important;
   height: 200vh;
   mix-blend-mode: color;
-  background: ${({ backgroundColor }) =>
-    `radial-gradient(50% 50% at 50% 50%, ${backgroundColor} 0%, rgba(255, 255, 255, 0) 100%)`};
   position: absolute;
   top: 0px;
   left: 0px;
@@ -160,14 +158,14 @@ export const GlobalStyle = createGlobalStyle`
   @supports (font-variation-settings: normal) {
     html { font-family: 'Inter var', sans-serif; }
   }
-  
+
   html,
   body {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
-    font-size: 14px;    
+    font-size: 14px;
     background-color: ${({ theme }) => theme.bg6};
   }
 
@@ -179,7 +177,7 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
 
-  
+
 .three-line-legend {
 	width: 100%;
 	height: 70px;
@@ -214,7 +212,7 @@ export const GlobalStyle = createGlobalStyle`
 
 .tv-lightweight-charts{
   width: 100% !important;
-  
+
 
   & > * {
     width: 100% !important;

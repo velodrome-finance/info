@@ -22,8 +22,6 @@ const Wrapper = styled.div`
   top: 0px;
   z-index: 9999;
   box-sizing: border-box;
-  /* background-color: #1b1c22; */
-  background: linear-gradient(193.68deg, #1b1c22 0.68%, #000000 100.48%);
   color: ${({ theme }) => theme.bg2};
 
   @media screen and (max-width: 800px) {
@@ -40,7 +38,7 @@ const Option = styled.div`
   font-weight: 500;
   font-size: 14px;
   opacity: ${({ activeText }) => (activeText ? 1 : 0.6)};
-  color: ${({ theme }) => theme.white};
+  color: ${({ theme }) => theme.text1};
   display: flex;
   :hover {
     opacity: 1;
@@ -71,7 +69,7 @@ const HeaderText = styled.div`
     opacity: 1;
   }
   a {
-    color: ${({ theme }) => theme.white};
+    color: ${({ theme }) => theme.text1};
   }
 `
 
@@ -107,6 +105,8 @@ function SideNav({ history }) {
   const seconds = useSessionStart()
 
   const [isDark, toggleDarkMode] = useDarkModeManager()
+
+  const theme = ({ theme }) => theme;
 
   return (
     <Wrapper isMobile={below1080}>
@@ -188,8 +188,8 @@ function SideNav({ history }) {
           {!below1180 && (
             <Polling style={{ marginLeft: '.5rem' }}>
               <PollingDot />
-              <a href="/" style={{ color: 'white' }}>
-                <TYPE.small color={'white'}>
+              <a href="/" style={{ color: theme.text1 }}>
+                <TYPE.small style={{ color: theme.text1 }}>
                   Updated {!!seconds ? seconds + 's' : '-'} ago <br />
                 </TYPE.small>
               </a>
