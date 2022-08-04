@@ -278,9 +278,10 @@ export const setThemeColor = (theme) => document.documentElement.style.setProper
 export const Big = (number) => new BigNumber(number)
 
 export const urls = {
-  showTransaction: (tx) => `https://etherscan.io/tx/${tx}/`,
-  showAddress: (address) => `https://www.etherscan.io/address/${address}/`,
-  showToken: (address) => `https://www.etherscan.io/token/${address}/`,
+  showTransaction: (tx) => `https://optimistic.etherscan.io/tx/${tx}/`,
+  showAddress: (address) => `https://optimistic.etherscan.io/address/${address}/`,
+  showToken: (address) => `https://optimistic.etherscan.io/token/${address}/`,
+  // optimistic.etherscan does not have blocks url - however urls.showBlock is unused
   showBlock: (block) => `https://etherscan.io/block/${block}/`,
 }
 
