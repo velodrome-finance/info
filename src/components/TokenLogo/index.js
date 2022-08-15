@@ -3,7 +3,9 @@ import styled from 'styled-components'
 import { isAddress } from '../../utils/index.js'
 import EthereumLogo from '../../assets/eth.png'
 
-const BAD_IMAGES = {}
+const BAD_IMAGES = {
+  TOKENS: []
+}
 
 const Inline = styled.div`
   display: flex;
@@ -30,12 +32,24 @@ const StyledEthereumLogo = styled.div`
   }
 `
 
+const getTokenlist = async () => {
+  let list = await fetch('https://api.velodrome.finance/api/v1/assets')
+  .then((response) => response.json())
+  .then((rjson) => rjson.data);
+
+  BAD_IMAGES.TOKENS = list;
+}
+
 export default function TokenLogo({ address, header = false, size = '24px', ...rest }) {
   const [error, setError] = useState(false)
 
   useEffect(() => {
     setError(false)
   }, [address])
+
+  if (BAD_IMAGES.TOKENS.length === 0) {
+    getTokenlist();
+  }
 
   if (error || BAD_IMAGES[address]) {
     return (
@@ -73,25 +87,19 @@ export default function TokenLogo({ address, header = false, size = '24px', ...r
 
   let currentLogo = null
 
-  const tokenlist = await fetch('https://api.velodrome.finance/api/v1/assets')
-  .then((response) => response.json())
-  .then((rjson) => rjson.data);
-
-  for (let i = 0; i < tokenList["tokens"].length; i++) {
-    if (address?.toLowerCase() === tokenList["tokens"][i]['address'].toLowerCase()) {
-      currentLogo = tokenList["tokens"][i]['logoURI']
+  for (let i = 0; i < BAD_IMAGES.TOKENS.length; i++) {
+    if (address?.toLowerCase() === BAD_IMAGES.TOKENS[i]['address'].toLowerCase()) {
+      currentLogo = BAD_IMAGES.TOKENS[i]['logoURI']
       break
     }
   }
-
-  const path = currentLogo
 
   return (
     <Inline>
       <Image
         {...rest}
         alt={''}
-        src={path}
+        src={currentLogo}
         size={size}
         onError={(event) => {
           BAD_IMAGES[address] = true
