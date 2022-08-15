@@ -1,21 +1,19 @@
-# Uniswap Info (V1 + V2)
+# Velodrome Finance Analytics
 
-[![Lint](https://github.com/Uniswap/uniswap-info/workflows/Lint/badge.svg)](https://github.com/Uniswap/uniswap-info/actions?query=workflow%3ALint)
-[![Deploy](https://github.com/Uniswap/uniswap-info/workflows/Deploy/badge.svg)](https://github.com/Uniswap/uniswap-info/actions?query=workflow%3ADeploy)
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+Analytics site for the [Velodrome Protocol](https://velodrome.finance).
 
-Analytics site for the [Uniswap Protocol](https://uniswap.org).
+Subgraph by [David Mihal](https://github.com/dmihal/velodrome-subgraph).
 
-Includes support for Uniswap V1 and V2. For Uniswap V3 info see https://github.com/Uniswap/uniswap-v3-info
+### Development
 
-### To Start Development
+Install the dependencies first:
 
-###### Installing dependencies
 ```bash
 yarn
 ```
 
-###### Running locally
+Next start the app locally:
+
 ```bash
 yarn start
 ```
